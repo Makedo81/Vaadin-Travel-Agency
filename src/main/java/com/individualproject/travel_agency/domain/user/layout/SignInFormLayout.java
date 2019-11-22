@@ -113,44 +113,4 @@ public class SignInFormLayout extends UI {
             registrationForm.setVisible(false);
         }
     }
-
-    public Label getStatusDescription() {
-        return statusDescription;
-    }
-
-    public Label getLoginInfo() {
-        return loginInfo;
-    }
-
-    public FormLayout getLoginLayout() {
-        return loginLayout;
-    }
-
-    public VerticalLayout getAccountInfo() {
-        return accountInfo;
-    }
-
-    public VerticalLayout getStatusLayout() {
-        return statusLayout;
-    }
-
-    public HorizontalLayout getSignAction() {
-        return signAction;
-    }
-
-    public VerticalLayout getAdditionalStatusLayout() {
-        return additionalStatusLayout;
-    }
-
-    public TextField getLogin() {
-        return login;
-    }
-
-    public TextField getStatusMessage() {
-        return statusMessage;
-    }
-
-    public PasswordField getPasswordField() {
-        return passwordField;
-    }
 }

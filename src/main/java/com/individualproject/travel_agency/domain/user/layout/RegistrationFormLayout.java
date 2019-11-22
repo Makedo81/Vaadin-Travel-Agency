@@ -5,7 +5,11 @@ import com.individualproject.travel_agency.client.UserClient;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class RegistrationFormLayout {
 
     private TextField name = new TextField("Name:");
@@ -55,33 +59,5 @@ public class RegistrationFormLayout {
                 login,
                 password,
                 save);
-    }
-
-    public TextField getName() {
-        return name;
-    }
-
-    public TextField getSurname() {
-        return surname;
-    }
-
-    public TextField getPhone() {
-        return phone;
-    }
-
-    public TextField getEmail() {
-        return email;
-    }
-
-    public TextField getLogin() {
-        return login;
-    }
-
-    public TextField getPassword() {
-        return password;
-    }
-
-    public VerticalLayout getCreateUserLayout() {
-        return createUserLayout;
     }
 }

@@ -17,14 +17,16 @@ public class UpdateFormNotificationProcessor {
     public boolean checkInputUpdateForm(String objectToUpdate, String valueToUpdate) {
         switch (objectToUpdate) {
             case "LASTNAME":
-                if (valueToUpdate.equals("") || valueToUpdate.equals("") || valueToUpdate.matches("[0-9]+")) {
+                if (valueToUpdate.equals("") ||
+                        valueToUpdate.matches("[0-9]+") ||
+                        (valueToUpdate.matches(".*[0-9].*") && valueToUpdate.matches(".*[a-zA-Z].*"))) {
                     incorrectFormatNotification.open();
                     incorrectFormatNotification.setDuration(1800);
                     return false;
                 } else incorrectFormatNotification.close();
                 break;
             case "EMAIL":
-                if (valueToUpdate.equals("") || valueToUpdate.equals("") || !valueToUpdate.contains("@")) {
+                if (valueToUpdate.equals("") || !valueToUpdate.contains("@")) {
                     incorrectFormatNotification.open();
                     incorrectFormatNotification.setDuration(1800);
                     return false;
@@ -32,8 +34,9 @@ public class UpdateFormNotificationProcessor {
                 incorrectFormatNotification.setDuration(1800);
                 break;
             case "PHONE NUMBER":
-                if (valueToUpdate.equals("") || valueToUpdate.equals("") || valueToUpdate.matches("[a-zA-Z_]") ||
-                        !valueToUpdate.matches("[0-9]+")) {
+                if (valueToUpdate.equals("") || valueToUpdate.matches("[a-zA-Z_]") ||
+                        !valueToUpdate.matches("[0-9]+") || valueToUpdate.length() < 9 || valueToUpdate.length()> 12
+                        ) {
                     incorrectFormatNotification.open();
                     return false;
                 } else incorrectFormatNotification.close();

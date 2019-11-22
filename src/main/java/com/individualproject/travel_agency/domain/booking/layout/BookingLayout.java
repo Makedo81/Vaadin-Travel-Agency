@@ -56,11 +56,10 @@ public class BookingLayout {
     private MenuBar bar = new MenuBar();
     private Select<String> select = new Select<>();
     private MealUpdateCreator mealUpdateCreator = new MealUpdateCreator();
-    BookingLayoytStylesSetter bookingLayoytStylesSetter = new BookingLayoytStylesSetter();
+    private BookingLayoytStylesSetter bookingLayoytStylesSetter = new BookingLayoytStylesSetter();
 
     public BookingLayout(MainView mainView) {
         this.mainView = mainView;
-
         loginStatus.setText(mainView.getSignInFormLayout().getLoginInfo().getText());
         bar.setOpenOnHover(true);
         booking.addThemeVariants(GridVariant.LUMO_NO_BORDER, GridVariant.LUMO_NO_ROW_BORDERS, GridVariant.LUMO_ROW_STRIPES, GridVariant.LUMO_COMPACT);
@@ -76,6 +75,7 @@ public class BookingLayout {
         deleteBooking.addClickListener(event -> bookingClient.deleteReservation(this));
 
         booking.addItemClickListener(event -> {
+            paymentLayout.remove(cardNumber, cardCVC);
             reservation = new BookingDto();
             reservation.setBookingCode(event.getItem().getBookingCode());
             fieldPrice.setWidth("100px");
@@ -103,53 +103,5 @@ public class BookingLayout {
         PaymentStatusDto paymentInfo = bookingClient.getPaymentStatus(this);
         String paymentStatus = paymentInfo.getPaymentStatus();
         return paymentStatus.equals("open");
-    }
-
-    public VerticalLayout getBookingResults() {
-        return bookingResults;
-    }
-
-    public BookingDto getReservation() {
-        return reservation;
-    }
-
-    public HorizontalLayout getActionDeal() {
-        return actionDeal;
-    }
-
-    public VerticalLayout getTitle() {
-        return title;
-    }
-
-    public VerticalLayout getPaymentLayout() {
-        return paymentLayout;
-    }
-
-    public Grid<BookingDto> getBooking() {
-        return booking;
-    }
-
-    public Label getLoginStatus() {
-        return loginStatus;
-    }
-
-    public TextField getCardNumber() {
-        return cardNumber;
-    }
-
-    public TextField getCardCVC() {
-        return cardCVC;
-    }
-
-    public TextField getMenuItems() {
-        return menuItems;
-    }
-
-    public HorizontalLayout getPriceInfo() {
-        return priceInfo;
-    }
-
-    public TextField getFieldPrice() {
-        return fieldPrice;
     }
 }

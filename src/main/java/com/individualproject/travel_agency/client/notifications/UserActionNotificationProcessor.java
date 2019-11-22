@@ -34,7 +34,7 @@ public class UserActionNotificationProcessor {
                 ||
                 !registrationFormLayout.getPhone().getValue().matches("[0-9]+")
                 ||
-                registrationFormLayout.getPhone().getValue().length() < 9 && registrationFormLayout.getPhone().getValue().length() > 12)
+                registrationFormLayout.getPhone().getValue().length() < 9 || registrationFormLayout.getPhone().getValue().length() > 12)
                 ||
                 (registrationFormLayout.getPassword().getValue().equals("")
                         ||

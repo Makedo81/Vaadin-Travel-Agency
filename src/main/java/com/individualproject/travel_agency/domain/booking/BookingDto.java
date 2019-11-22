@@ -2,10 +2,12 @@ package com.individualproject.travel_agency.domain.booking;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
 public class BookingDto {
 
@@ -17,17 +19,6 @@ public class BookingDto {
     private int totalPrice;
     private String mealType;
     private String bookingCode;
-
-    public BookingDto() {
-    }
-
-    public String getBookingCode() {
-        return bookingCode;
-    }
-
-    public void setBookingCode(String bookingCode) {
-        this.bookingCode = bookingCode;
-    }
 }
 
 

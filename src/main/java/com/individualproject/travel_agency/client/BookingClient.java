@@ -19,7 +19,7 @@ public class BookingClient {
     private RestTemplate restTemplate = new RestTemplate();
     private BookingLayoutNotificationProcessor bookingLayoutNotificationProcessor = new BookingLayoutNotificationProcessor();
 
-    public SelectedBookingDto addDeal(DealLayout dealLayout) {
+    public SelectedBookingDto addDeal(final DealLayout dealLayout) {
 
         SelectedBookingDto selectedBookingDto = new SelectedBookingDto();
         selectedBookingDto.setHotelName(dealLayout.getSelectedDeal().getHotelName());
@@ -48,7 +48,7 @@ public class BookingClient {
         return restTemplate.postForObject(url, selectedBookingDto, SelectedBookingDto.class);
     }
 
-    public List<BookingDto> getBooking(BookingLayout bookingLayout) {
+    public List<BookingDto> getBooking(final BookingLayout bookingLayout) {
         URI url = UriComponentsBuilder.fromHttpUrl("http://localhost:8080/v1/bookings/getBooking")
                 .queryParam("loginValue", bookingLayout.getLoginStatus().getText())
                 .build().encode().toUri();
@@ -59,7 +59,7 @@ public class BookingClient {
         return bookingsList;
     }
 
-    public void deleteReservation(BookingLayout bookingLayout) {
+    public void deleteReservation(final BookingLayout bookingLayout) {
         URI url = UriComponentsBuilder.fromHttpUrl("http://localhost:8080/v1/bookings/delete")
                 .queryParam("bookingCode", bookingLayout.getReservation().getBookingCode())
                 .build().encode().toUri();
@@ -67,7 +67,7 @@ public class BookingClient {
         restTemplate.delete(url);
     }
 
-    public void payReservation(BookingLayout bookingLayout) {
+    public void payReservation(final BookingLayout bookingLayout) {
         if (bookingLayoutNotificationProcessor.checkFields(bookingLayout)) {
             URI url = UriComponentsBuilder.fromHttpUrl("http://localhost:8080/v1/bookings/pay")
                     .queryParam("bookingCode", bookingLayout.getReservation().getBookingCode())
@@ -81,7 +81,7 @@ public class BookingClient {
         }
     }
 
-    public PaymentStatusDto getPaymentStatus(BookingLayout bookingLayout) {
+    public PaymentStatusDto getPaymentStatus(final BookingLayout bookingLayout) {
         URI url = UriComponentsBuilder.fromHttpUrl("http://localhost:8080/v1/bookings/getStatus")
                 .queryParam("bookingCode", bookingLayout.getReservation().getBookingCode())
                 .build().encode().toUri();
@@ -92,7 +92,7 @@ public class BookingClient {
         return objects;
     }
 
-    public FinalPriceDto getPrice(BookingLayout bookingLayout) {
+    public FinalPriceDto getPrice(final BookingLayout bookingLayout) {
         URI url = UriComponentsBuilder.fromHttpUrl("http://localhost:8080/v1/bookings/getFinalPrice")
                 .queryParam("bookingCode", bookingLayout.getReservation().getBookingCode())
                 .build().encode().toUri();

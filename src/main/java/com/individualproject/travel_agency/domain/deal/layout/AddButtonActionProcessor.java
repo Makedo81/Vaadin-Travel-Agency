@@ -9,7 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import static java.time.temporal.ChronoUnit.DAYS;
 
 @Setter
@@ -38,7 +37,6 @@ public class AddButtonActionProcessor {
         addButton.addClickListener(event2 -> {
             if (status(mainView, loginStatus)) {
                 bookingClient.addDeal(dealLayout);
-
                 dealLayout.getMealResultLayout().getElement().removeAllChildren();
                 dealLayout.getEndDate().clear();
                 dealLayout.getStartDate().clear();

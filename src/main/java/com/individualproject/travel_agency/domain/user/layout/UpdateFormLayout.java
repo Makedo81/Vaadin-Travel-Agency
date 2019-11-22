@@ -72,21 +72,5 @@ public class UpdateFormLayout {
         password.clear();
         password.setVisible(false);
     }
-
-    public Select<String> getSelect() {
-        return select;
-    }
-
-    public TextField getPassword() {
-        return password;
-    }
-
-    public TextField getNewData() {
-        return newData;
-    }
-
-    public VerticalLayout getUpdateFormLayout() {
-        return updateFormLayout;
-    }
 }
 

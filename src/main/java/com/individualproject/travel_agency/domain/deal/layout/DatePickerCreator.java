@@ -1,11 +1,9 @@
 package com.individualproject.travel_agency.domain.deal.layout;
 
-import com.vaadin.flow.component.html.Label;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.time.LocalDate;
 
 @Getter

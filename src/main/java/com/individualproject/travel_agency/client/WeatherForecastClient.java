@@ -14,7 +14,7 @@ public class WeatherForecastClient {
 
     private RestTemplate restTemplate = new RestTemplate();
 
-    public WeatherResponseDto checkWeather(WeatherSearchLayout weatherSearchLayout) {
+    public WeatherResponseDto checkWeather(final WeatherSearchLayout weatherSearchLayout) {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);

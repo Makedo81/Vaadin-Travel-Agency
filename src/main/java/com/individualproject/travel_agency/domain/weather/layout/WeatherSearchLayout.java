@@ -8,8 +8,12 @@ import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
+import lombok.Getter;
+import lombok.Setter;
 import java.io.IOException;
 
+@Setter
+@Getter
 public class WeatherSearchLayout {
 
     public MainView mainView;
@@ -41,13 +45,5 @@ public class WeatherSearchLayout {
         message.getStyle().set("font-size", "20px");
         message.getStyle().set("Monospaced", "Font.BOLD");
         return weather;
-    }
-
-    public TextField getTypeCity() {
-        return typeCity;
-    }
-
-    public VerticalLayout getWeatherForecastLayout() {
-        return weatherForecastLayout;
     }
 }
