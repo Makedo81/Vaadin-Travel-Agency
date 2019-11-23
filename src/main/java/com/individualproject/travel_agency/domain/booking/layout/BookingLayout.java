@@ -57,6 +57,7 @@ public class BookingLayout {
     private Select<String> select = new Select<>();
     private MealUpdateCreator mealUpdateCreator = new MealUpdateCreator();
     private BookingLayoytStylesSetter bookingLayoytStylesSetter = new BookingLayoytStylesSetter();
+    private GridRefresher gridRefresher = new GridRefresher();
 
     public BookingLayout(MainView mainView) {
         this.mainView = mainView;
@@ -72,7 +73,10 @@ public class BookingLayout {
             bookingLayoytStylesSetter.setStyles(status, booking, bookingResults, signInInfoReminder, this);
         });
 
-        deleteBooking.addClickListener(event -> bookingClient.deleteReservation(this));
+        deleteBooking.addClickListener(event -> {
+            bookingClient.deleteReservation(this);
+            gridRefresher.updateView(this);
+        });
 
         booking.addItemClickListener(event -> {
             paymentLayout.remove(cardNumber, cardCVC);

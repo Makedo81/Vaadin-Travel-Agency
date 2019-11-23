@@ -32,8 +32,8 @@ public class BookingLayoytStylesSetter {
             booking.setWidth("500px");
             booking.setColumns(
                     "bookingCode",
-                    "firstname",
-                    "lastname",
+                    "from",
+                    "to",
                     "hotelName",
                     "mealType",
                     "price",

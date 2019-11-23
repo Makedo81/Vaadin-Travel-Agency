@@ -19,6 +19,8 @@ public class BookingDto {
     private int totalPrice;
     private String mealType;
     private String bookingCode;
+    private String from;
+    private String to;
 }
 
 
