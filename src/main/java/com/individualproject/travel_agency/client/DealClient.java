@@ -26,8 +26,8 @@ public class DealClient {
         URI url = UriComponentsBuilder.fromHttpUrl("http://localhost:8080/v1/deal/get")
                 .queryParam("country", dealLayout.getCountryCombo().getValue())
                 .queryParam("city", dealLayout.getCityCombo().getValue())
-                .queryParam("dateFrom", dealLayout.getEndDate().getMin().toString())
-                .queryParam("dateTo", dealLayout.getStartDate().getMax().toString())
+                .queryParam("dateFrom", dealLayout.getEndDate().getMin().minusDays(1).toString())
+                .queryParam("dateTo", dealLayout.getStartDate().getMax().plusDays(1).toString())
                 .build().encode().toUri();
         System.out.println(url);
         ResponseEntity<DealDto[]> responseEntity = restTemplate.getForEntity(url, DealDto[].class);

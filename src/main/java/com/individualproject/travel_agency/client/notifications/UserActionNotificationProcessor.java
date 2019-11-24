@@ -56,7 +56,7 @@ public class UserActionNotificationProcessor {
                 ||
                 !registrationFormLayout.getEmail().getValue().contains("@")) {
             incorrectFormatNotification.open();
-            incorrectFormatNotification.setDuration(3600);
+            incorrectFormatNotification.setDuration(1800);
             return false;
         } else
             incorrectFormatNotification.close();
